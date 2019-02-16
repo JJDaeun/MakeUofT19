@@ -30,7 +30,13 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.container}>
             <Text style={styles.getStartedText}>
-              Using this app, you can track your meal, viewing temperatures, add things, and stuff
+              New Recipe
+            </Text>
+          </View>
+
+          <View style={styles.container}>
+            <Text style={styles.getStartedText}>
+              Previous Recipies
             </Text>
           </View>
 
@@ -169,6 +175,7 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+    margin: 30
   },
   tabBarInfoContainer: {
     position: 'absolute',

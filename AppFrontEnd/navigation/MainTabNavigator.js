@@ -4,8 +4,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import CreateScreen from '../screens/CreateScreen';
+import LiveScreen from '../screens/LiveScreen';
+import RecipeScreen from '../screens/RecipeScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -17,44 +19,63 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          'ios-home'
       }
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const CreateStack = createStackNavigator({
+  Create: CreateScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+CreateStack.navigationOptions = {
+  tabBarLabel: 'Create',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={
+          'ios-add-circle'
+      }
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const LiveStack = createStackNavigator({
+  Live: LiveScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+LiveStack.navigationOptions = {
+  tabBarLabel: 'Live Stream',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={
+          'ios-camera'
+      }
+    />
+  ),
+};
+
+const RecipeStack = createStackNavigator({
+  Recipe: RecipeScreen,
+});
+
+RecipeStack.navigationOptions = {
+  tabBarLabel: 'Recipe',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+          'ios-pizza'
+      }
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  CreateStack,
+  LiveStack,
+  RecipeStack,
 });
