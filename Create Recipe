@@ -1,0 +1,156 @@
+import React, { Component } from 'react'; 
+import {
+	View, 
+  StyleSheet,
+	Platform, 
+	TextInput, 
+  TouchableHighlight,
+	Image, 
+  View,
+} from 'react-native'; 
+
+import { MonoText } from '../components/StyledText';
+
+export default class NewRecipe extends React.Component {
+  constructor(props) {
+    super(props); 
+    this.state = (text: ''); 
+  }
+
+  render(){
+          let timeunit = [{
+            value: 'Seconds', 
+          }, {
+            value: 'Minutes', 
+          }, { 
+            value: 'Hours', 
+          }];
+
+          let tempunit = [{
+            value: 'Celcius', 
+          }, {
+            value: 'Fahrenheit', 
+          }]; 
+
+    return (
+      <View style={styles.Container}>
+        <TextInput 
+          style={{height:20}} 
+          placeholder="Add Ingredients"
+          onChangeText={(text) => this.setState({text})}>
+        <Text style={styles.getUserInput}>
+          {this.state.text.split(' ').map((word) => //movetodatabase)}
+
+        <TextInput 
+          style={{height:20}}
+          keyboardType = 'numeric' 
+          placeholder="Choose Time" 
+          onChangeText={(text) => this.setState({text})}
+          Time = {this.state.myTime}> 
+          <Text style={styles.getUserInput}> 
+            {this.state.text.split(' ').map((word) => //movetodatabase)}
+
+        <Dropdown 
+          label='Time Unit' 
+          data={timeunit}
+        /> 
+
+        <Text style={styles.getCommon}> 
+          Choose Heat Level For Each Step 
+        </Text> 
+
+        <Dropdown 
+          label='Temperature Unit' 
+          data={tempunit}
+        />
+
+<!-- NewInput = user clicks to add another ingredient> 
+        if (NewInput && IngredientNumber <= 5) {
+          return 
+
+          <TextInput 
+          style={{height:20}} 
+          placeholder="Add Ingredients"
+          onChangeText={(text) => this.setState({text})}>
+        <Text style={styles.getUserInput}>
+          {this.state.text.split(' ').map((word) => //movetodatabase)}
+
+          <TextInput 
+          style={{height:20}}
+          keyboardType = 'numeric' 
+          placeholder="Choose Time" 
+          onChangeText={(text) => this.setState({text})}
+          Time = {this.state.myTime}> > 
+          <Text style={styles.getUserInput}> 
+            {this.state.text.split(' ').map((word) => //movetodatabase)}
+
+        <Dropdown 
+          label='Time Unit' 
+          data={timeunit}
+        /> 
+
+        <Text style={styles.getCommon}> 
+          Choose Heat Level For Each Step 
+        </Text> 
+
+        <Dropdown 
+          label='Temperature Unit' 
+          data={tempunit}
+        />      
+
+        } 
+
+    <TouchableHighlight style={styles.Button} onPress={() => this.props.navigation.navigate (' !edit move to Live Feed ')}>
+      <Text style={styles.getTitle}>
+        Start Cooking 
+    
+    <TouchableHighlight style={styles.Button} onPress={() => this.props.navigation.navigate (' !edit move back to Home ')}>
+      <Text style={styles.getTitle}>
+        Cancel Recipe 
+
+    <TouchableHighlight style={styles.Button} onPress={() => this.props.navigation.navigate (' !edit move the user to Recipe ')}> 
+      <Text style={styles.getTitle}> 
+        Save Recipe
+        <!-- function to save recipe --> 
+      </Text> 
+    </TouchableHighlight> 
+    </TextInput> 
+    </View> 
+    ); 
+  };
+}
+
+  const styles= StyleSheet.create({
+    Container: {
+      backgroundColor: '#fff', 
+    }, 
+    getUserInput: {
+      backgroundColor: '#D4D4D4',
+      fontSize: 14, 
+      padding: 5, 
+      color: '#787878', 
+      textAlign: 'right', 
+    },
+    getTitle: {
+      fontSize: 20, 
+      fontFamily: 'Verdana', 
+      color: '787878', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+    },
+    getCommon: {
+      fontSize: 14, 
+      fontFamily: 'Verdana', 
+      color: '787878', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+    },
+    getButton: {
+      fontSize: 20, 
+      fontFamily: 'Verdana', 
+      color: '787878', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+    },
+  })
+)
