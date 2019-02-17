@@ -16,7 +16,7 @@ class TemperatureWidget extends React.Component {
     this.state = {
       temperatureReading:-1,
       modalVis: false,
-      reading: "60 "
+      reading: "60"
     };
     this.showDiag = this.showDiag.bind(this)
     this.sendInput = this.sendInput.bind(this)
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#fff',
+    backgroundColor: '#99DFFF'
   },
   getStartedText: {
     fontSize: 17,

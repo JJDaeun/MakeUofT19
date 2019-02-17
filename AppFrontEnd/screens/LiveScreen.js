@@ -11,7 +11,10 @@ import {
 } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
-import TemperatureWidget from '../components/TemperatureWidget'
+import TemperatureWidget from '../components/TemperatureWidget';
+import WaterWidget from '../components/WaterWidget';
+import IngredientWidget from '../components/IngredientWidget';
+import CameraWidget from '../components/CameraWidget';
 
 export default class CreateScreen extends React.Component {
   static navigationOptions = {
@@ -28,6 +31,25 @@ export default class CreateScreen extends React.Component {
         </View>
 
         <TemperatureWidget/>
+
+        <View style={styles.container}>
+          <Text style={styles.getStartedText}>
+            Water Level
+          </Text>
+        </View>
+
+        <WaterWidget/>
+
+        <View style={styles.container}>
+          <Text style={styles.getStartedText}>
+            Ingredients
+          </Text>
+        </View>
+
+        <IngredientWidget/>
+
+        <CameraWidget/>
+
       </ScrollView>
     );
   }
