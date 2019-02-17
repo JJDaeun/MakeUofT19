@@ -1,6 +1,17 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+
+import TemperatureWidget from '../components/TemperatureWidget'
 
 export default class CreateScreen extends React.Component {
   static navigationOptions = {
@@ -10,9 +21,13 @@ export default class CreateScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+        <View style={styles.container}>
+          <Text style={styles.getStartedText}>
+            Temperature1
+          </Text>
+        </View>
+
+        <TemperatureWidget/>
       </ScrollView>
     );
   }
@@ -23,5 +38,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  getStartedText: {
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+    margin: 30
   },
 });

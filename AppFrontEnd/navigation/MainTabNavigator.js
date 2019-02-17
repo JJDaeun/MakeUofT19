@@ -46,7 +46,7 @@ const LiveStack = createStackNavigator({
 });
 
 LiveStack.navigationOptions = {
-  tabBarLabel: 'Live Stream',
+  tabBarLabel: 'Live',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
