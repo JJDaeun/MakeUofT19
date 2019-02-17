@@ -23,7 +23,7 @@ export default class CreateScreen extends React.Component {
       <ScrollView style={styles.container}>
         <View style={styles.container}>
           <Text style={styles.getStartedText}>
-            Temperature1
+            Temperature
           </Text>
         </View>
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 25,
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',

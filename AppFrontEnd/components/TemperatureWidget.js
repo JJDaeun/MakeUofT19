@@ -8,18 +8,26 @@ import {
   Button
  } from 'react-native';
 
+import DialogInput from 'react-native-dialog-input';
+
 class TemperatureWidget extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       temperatureReading:-1,
-      modalVis: false
-    }
+      modalVis: false,
+      reading: "60 "
+    };
+    this.showDiag = this.showDiag.bind(this)
+    this.sendInput = this.sendInput.bind(this)
   }
 
-  changeTemp(){
+  showDiag(show){
     // ToastAndroid.show('Temp changed', ToastAndroid.SHORT)
-    modalVis = true
+    this.setState({modalVis:show});
+  }
+  sendInput(inputText){
+    this.setState({reading:inputText});
   }
 
   render() {
@@ -28,25 +36,26 @@ class TemperatureWidget extends React.Component {
         <Text style={styles.getStartedText}>
           The temperature is {this.state.temperatureReading} degrees
         </Text>
-        <Button
-          onPress={this.changeTemp}
-          title='Adjust Temperature'
-          color='#841584'
-        />
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
-            </View>
-          </View>
-        </Modal>
 
+        <Text style={styles.getStartedText}>
+          The set temperature is {this.state.reading} degrees
+        </Text>
+
+        <Button
+          onPress={()=>{this.showDiag(true)}}
+          title='Adjust Temperature'
+          color='#99DFFF'
+          type= "outline"
+          //rounded = 1;
+        />
+
+        <DialogInput isDialogVisible={this.state.modalVis}
+                    title={"DialogInput 1"}
+                    message={"Message for DialogInput #1"}
+                    hintInput ={"HINT INPUT"}
+                    submitInput={ (inputText) => {this.sendInput(inputText)}}
+                    closeDialog={()=>{this.showDiag(false)}}>
+        </DialogInput>
       </View>
     )
   }
@@ -63,7 +72,16 @@ const styles = StyleSheet.create({
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
-    margin: 30
+    margin: 30,
+    //borderWidth: 2,
+    //borderColor: '#99DFFF',
+
+    //border-radius: 50%,
+    //backgroundColor: '#fff',
+    //borderRadius: 30,
+
+    //color: '#99DFFF',
+    //border: '#99DFFF',
   },
 });
 
